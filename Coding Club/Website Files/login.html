@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Create Account</title>
+    <link rel="icon" href="images/grad.png">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+   <style>
+     
+    </style>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- <form action="#" class="sign-in-form">
+                  <h2 class="title">Sign in</h2>  
+                  <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" />
+                  </div>
+                  <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" />
+                    </div>
+                    <input type="Submit" class="btn solid" value="Login" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </form> -->
+            </div>
+
+            <div class="signin-signup">
+                <form action="" class="sign-up-form" method=GET>
+                    <h2 class="title">Sign Up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id='sname' name="uname" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id='semail' name="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id='spwd' placeholder="Password" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password2" placeholder="Re-type Password" />
+                    </div>
+                    <input type="button" onclick="ajaxcall('sname','semail','spwd','smodalmessage');" class="btn solid" value="Sign Up" />
+                    <div class="alert show" id="smodalmessage">
+                         
+                    </div>
+                    <p class="social-text">Or Sign Up with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+  
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>WELCOME TO <i class="fas fa-graduation-cap"></i>EDUCATION</h3>
+                    <button class="btn transparent" id="sign-up-button">Sign Up</button>
+                </div>
+                <img src="images/log.svg" alt="" class="image" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>ONE OF US</h3>
+                    <button class="btn transparent" id="sign-in-button">Sign In</button>
+                </div>
+                <img src="images/register.svg" alt="" class="image" />
+                <form action="#" class="sign-in-form">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="lname" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="lpwd" placeholder="Password" />
+                    </div>
+                    <input type="button" onclick="ajaxcall('lname','lpwd','lmodalmessage')" class="btn solid" value="Login" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modal">
+      <div id="modalmessage"></div>
+      <div style="position: relative;">
+    <button class="closed" onclick=shownomore()><strong>X</strong></button>
+  </div>
+    </div>
+    <script>
+      var c=0;
+      function ajaxcall(uname,email,pwd,divname){
+        document.getElementById("smodalmessage").style.visibility="visible";
+        var uname=document.getElementById(uname).value;
+        var pwd=document.getElementById(pwd).value;
+        var email=document.getElementById(email).value;
+      var list={
+        uname: uname,
+        pwd: pwd,
+        email: email
+      };
+      $.ajax({
+        url: 'signup.php',
+        type: "GET",
+        data: list,
+        success: function(data){
+            $("#"+divname).html(data);
+        },
+        error: function(){
+          $("#"+divname).html("<p>Error In ajax call</p>");
+        }
+      });
+      }
+      
+    </script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

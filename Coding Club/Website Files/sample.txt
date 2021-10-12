@@ -1,0 +1,17 @@
+#Login
+<div class="alertsign-in-form">
+    <span class="fas fa-check-circle"></span> 
+    <span class="msg" id="lmodalmessage"></span>
+    <span class="close-btn">
+        <span class="fas fa-times"></span>  
+    </span>    
+</div>
+
+#Sign-Up
+<div class="alertsign-up-form">
+    <span class="fas fa-check-circle"></span> 
+    <span class="msg" id="smodalmessage">Success: You have Successfully Registered</span>
+    <span class="close-btn">
+        <span class="fas fa-times"></span>  
+    </span>    
+</div>
